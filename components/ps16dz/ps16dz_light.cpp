@@ -82,8 +82,8 @@ namespace esphome
             snprintf(
                 tx_buffer,
                 sizeof(tx_buffer),
-                "AT+UPDATE=\"sequence\":\"%s\",\"signal\":\"%s\"",
-                "1000065460247",
+                "AT+UPDATE=\"signal\":\"%s\"",
+                //"1000065460247",
                 //++this->sequence_number,
                 new_binary ? "on" : "off"
             );
