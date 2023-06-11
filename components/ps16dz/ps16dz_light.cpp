@@ -82,10 +82,9 @@ namespace esphome
             snprintf(
                 tx_buffer,
                 sizeof(tx_buffer),
-                "AT+UPDATE=\"signal\":\"%s\"",
-                //"1000065460247",
-                //++this->sequence_number,
-                new_binary ? "on" : "off"
+                "AT+UPDATE=\"sequence\":\"%lld\",\"signal\":\"%s\"",
+                ++this->sequence_number,
+                new_binary ? "on" : "on"
             );
 
             this->serial_send_(tx_buffer);
@@ -132,6 +131,7 @@ namespace esphome
 
                     if (!strncmp(this->read_buffer_ + 3, "RESULT", 6))
                     {
+                        this->serial_send_ok_();
                     }
                     else if (!strncmp(this->read_buffer_ + 3, "UPDATE", 6))
                     {
