@@ -60,7 +60,7 @@ namespace esphome
         light::LightTraits PS16DZLight::get_traits()
         {
             auto traits = light::LightTraits();
-            traits.set_supported_color_modes({light::ColorMode::BRIGHTNESS});
+            //traits.set_supported_color_modes({light::ColorMode::BRIGHTNESS});
             return traits;
         }
 
@@ -70,29 +70,27 @@ namespace esphome
             float esphome_brightness;
 
             state->current_values_as_binary(&new_binary);
-            state->current_values_as_brightness(&esphome_brightness);
+            //state->current_values_as_brightness(&esphome_brightness);
 
-            const uint8_t new_brightness = (uint8_t)remap<float, float>(
-                esphome_brightness,
-                0.0, 1.0,
-                (float)this->min_value_,
-                (float)this->max_value_);
+            //const uint8_t new_brightness = (uint8_t)remap<float, float>(
+            //    esphome_brightness,
+            //    0.0, 1.0,
+            //    (float)this->min_value_,
+            //    (float)this->max_value_);
 
             char tx_buffer[80];
             snprintf(
                 tx_buffer,
                 sizeof(tx_buffer),
-                "AT+UPDATE=\"sequence\":\"%lld\",\"button\":\"%s\",\"signal\":\"%s\",\"cover\":\"%s\"",
+                "AT+UPDATE=\"sequence\":\"%lld\",\"signal\":\"%s\"",
                 ++this->sequence_number,
-                new_binary ? "on" : "off",
-                new_binary ? "on" : "off",
-                new_binary ? "open" : "closed"
+                new_binary ? "on" : "off"
             );
 
             this->serial_send_(tx_buffer);
 
             this->last_binary_ = new_binary;
-            this->last_brightness_ = new_brightness;
+            //this->last_brightness_ = new_brightness;
         }
 
         void PS16DZLight::dump_config()
