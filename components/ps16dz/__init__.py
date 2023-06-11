@@ -1,1 +1,1 @@
-"""Custom component root for PS-16-DZ dimmer"""
+"""Custom component root for King-Q1 garage door opener"""
