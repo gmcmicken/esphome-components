@@ -157,7 +157,7 @@ namespace esphome
 
                             if (!strncmp(token2, "\"per\"", 5))
                             {
-                                new_binary = strncmp(token3, "100", 3);
+                                new_binary = !strncmp(token3, "100", 3);
                                 // ESP_LOGD(TAG, "New state %d", new_state);
                             }
                             else if (!strncmp(token2, "\"bright\"", 8))
@@ -194,10 +194,10 @@ namespace esphome
                             auto call = this->state_->make_call();
                             call.set_state(new_binary);
 
-                            if (!new_binary)
-                            {
+                            //if (!new_binary)
+                            //{
                                 call.set_transition_length(0);
-                            }
+                            //}
 
                             call.perform();
                         }
