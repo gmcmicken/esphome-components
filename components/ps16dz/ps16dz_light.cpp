@@ -155,9 +155,9 @@ namespace esphome
                             char *token2 = strtok_r(token, ":", &end_token);
                             char *token3 = strtok_r(nullptr, ":", &end_token);
 
-                            if (!strncmp(token2, "\"switch\"", 8))
+                            if (!strncmp(token2, "\"per\"", 5))
                             {
-                                new_binary = !strncmp(token3, "\"on\"", 4);
+                                new_binary = !strncmp(token3, "100", 3);
                                 // ESP_LOGD(TAG, "New state %d", new_state);
                             }
                             else if (!strncmp(token2, "\"bright\"", 8))
