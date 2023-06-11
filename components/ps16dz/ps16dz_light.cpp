@@ -82,9 +82,9 @@ namespace esphome
             snprintf(
                 tx_buffer,
                 sizeof(tx_buffer),
-                "AT+UPDATE=\"sequence\":\"%lld\",\"signal\":\"%s\"",
+                "AT+UPDATE=\"sequence\":\"%lld\",\"switch\":\"%s\"",
                 ++this->sequence_number,
-                new_binary ? "on" : "on"
+                new_binary ? "on" : "off"
             );
 
             this->serial_send_(tx_buffer);
