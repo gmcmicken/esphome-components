@@ -79,12 +79,18 @@ namespace esphome
             //    (float)this->max_value_);
 
             char tx_buffer[80];
+            //snprintf(
+            //    tx_buffer,
+            //    sizeof(tx_buffer),
+            //    "AT+UPDATE=\"sequence\":\"%lld\",\"switch\":\"%s\"",
+            //    ++this->sequence_number,
+            //    new_binary ? "on" : "off"
+            //);
+
             snprintf(
                 tx_buffer,
                 sizeof(tx_buffer),
-                "AT+UPDATE=\"sequence\":\"%lld\",\"switch\":\"%s\"",
-                ++this->sequence_number,
-                new_binary ? "on" : "off"
+                "AT+STATUS?"
             );
 
             this->serial_send_(tx_buffer);
