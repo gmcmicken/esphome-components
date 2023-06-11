@@ -82,9 +82,12 @@ namespace esphome
             snprintf(
                 tx_buffer,
                 sizeof(tx_buffer),
-                "AT+UPDATE=\"sequence\":\"%lld\",\"signal\":\"%s\"",
+                "AT+UPDATE=\"sequence\":\"%lld\",\"button\":\"%s\",\"signal\":\"%s\",\"cover\":\"%s\"",
                 ++this->sequence_number,
-                new_binary ? "on" : "off");
+                new_binary ? "on" : "off",
+                new_binary ? "on" : "off",
+                new_binary ? "open" : "closed"
+            );
 
             this->serial_send_(tx_buffer);
 
