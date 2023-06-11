@@ -84,7 +84,7 @@ namespace esphome
                 sizeof(tx_buffer),
                 "AT+UPDATE=\"sequence\":\"%lld\",\"op\":%d",
                 ++this->sequence_number,
-                new_binary ? 1 : 3
+                new_binary ? 1 : 1
             );
 
             //snprintf(
