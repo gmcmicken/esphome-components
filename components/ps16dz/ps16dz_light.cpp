@@ -83,7 +83,7 @@ namespace esphome
                 tx_buffer,
                 sizeof(tx_buffer),
                 "AT+UPDATE=\"sequence\":\"%s\",\"signal\":\"%s\"",
-                "1572536577552",
+                "1000065460247",
                 //++this->sequence_number,
                 new_binary ? "on" : "off"
             );
