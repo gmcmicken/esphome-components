@@ -90,7 +90,7 @@ namespace esphome
             snprintf(
                 tx_buffer,
                 sizeof(tx_buffer),
-                "AT+STATUS?"
+                new_binary ? "AT+UPDATE=\"op\":3,\"per\":0,\"statu\":6" : "AT+UPDATE=\"op\":1,\"per\":100,\"statu\":5"
             );
 
             this->serial_send_(tx_buffer);
