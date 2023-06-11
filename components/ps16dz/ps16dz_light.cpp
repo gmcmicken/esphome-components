@@ -191,12 +191,12 @@ namespace esphome
 
                         if (new_binary != this->last_binary_)
                         {
-                            auto call = this->state_->make_call();
+                            auto call = id(garage_door_open)->make_call();
                             call.set_state(new_binary);
 
                             //if (!new_binary)
                             //{
-                                call.set_transition_length(0);
+                                //call.set_transition_length(0);
                             //}
 
                             call.perform();
